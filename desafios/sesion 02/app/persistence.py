@@ -8,8 +8,12 @@ def get_connection():
 
 
 def save_note(conn, text: str) -> None:
+    normalized = text.strip()
+    if not normalized:
+        raise ValueError("text no puede estar vacío")
+
     with conn.cursor() as cur:
-        cur.execute("INSERT INTO notes (text) VALUES (%s)", (text,))
+        cur.execute("INSERT INTO notes (text) VALUES (%s)", (normalized,))
     conn.commit()
 
 
