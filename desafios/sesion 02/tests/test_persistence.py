@@ -20,3 +20,14 @@ def test_save_and_fetch_notes_against_real_postgres(conn):
     save_note(conn, "hola")
 
     assert fetch_notes(conn) == ["hola"]
+
+
+def test_save_note_rejects_blank_text(conn):
+    with pytest.raises(ValueError):
+        save_note(conn, "   ")
+
+
+def test_save_note_strips_whitespace(conn):
+    save_note(conn, "  hola  ")
+
+    assert fetch_notes(conn) == ["hola"]
