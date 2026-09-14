@@ -6,7 +6,7 @@ Registro de los desafíos del curso de Claude Code.
 
 ## Progreso
 
-- [ ] Sesión 01
+- [x] Sesión 01 — Ciclo de contrato, crítica y revisión sobre un cambio real
 - [x] Sesión 02 — Regla con alcance por ruta
 - [ ] Sesión 03
 - [ ] Sesión 04
@@ -16,7 +16,33 @@ Registro de los desafíos del curso de Claude Code.
 - [ ] Sesión 08
 - [ ] Sesión 09
 
-Las sesiones 01, 03 a 09 se irán agregando a medida que se resuelvan sus desafíos.
+Las sesiones 03 a 09 se irán agregando a medida que se resuelvan sus desafíos.
+
+## Sesión 01 — Ciclo de contrato, crítica y revisión sobre un cambio real
+
+Carpeta: [`desafios/sesion 01/`](desafios/sesion%2001/)
+
+Desafío: [`desafio-opcional.md`](desafios/sesion%2001/desafio-opcional.md) —
+elegir una tarea real, pequeña y reversible, y ejecutarla con un contrato
+explícito, una crítica previa, ejecución dirigida en una rama corta y
+revisión con evidencia ejecutable.
+
+Qué se hizo:
+
+- Se escribió [`contrato.md`](desafios/sesion%2001/contrato.md) antes de tocar
+  código: resultado observable, fuentes, alcance, archivos intocables,
+  restricciones y verificación ejecutable.
+- Se hizo una [`critica.md`](desafios/sesion%2001/critica.md) del contrato,
+  encontrando decisiones sin resolver y formas en que la verificación podría
+  dar falso verde, y se ajustó el contrato solo con lo justificable.
+- Se ejecutó el cambio real (rama `practica/s01-contrato`, luego mezclada a
+  `main`): `save_note` en
+  [`desafios/sesion 02/app/persistence.py`](desafios/sesion%2002/app/persistence.py)
+  ahora rechaza texto vacío y recorta espacios, con tests que primero fallaron
+  (rojo) y luego pasaron (verde) contra el Postgres real del `docker-compose`
+  de la sesión 02.
+- Se documentó todo el log y las respuestas a las preguntas del desafío en
+  [`evidencia.md`](desafios/sesion%2001/evidencia.md).
 
 ## Sesión 02 — Regla con alcance por ruta
 
