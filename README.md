@@ -8,7 +8,7 @@ Registro de los desafíos del curso de Claude Code.
 
 - [x] Sesión 01 — Ciclo de contrato, crítica y revisión sobre un cambio real
 - [x] Sesión 02 — Regla con alcance por ruta
-- [ ] Sesión 03
+- [x] Sesión 03 — Presupuestar contexto: amplio vs. dirigido
 - [ ] Sesión 04
 - [ ] Sesión 05
 - [ ] Sesión 06
@@ -75,3 +75,31 @@ cd "desafios/sesion 02"
 docker compose up --abort-on-container-exit --exit-code-from tests
 docker compose down -v
 ```
+
+## Sesión 03 — Presupuestar contexto: amplio vs. dirigido
+
+Carpeta: [`desafios/sesion 03/`](desafios/sesion%2003/)
+
+Desafío: [`desafio-opcional.md`](desafios/sesion%2003/desafio-opcional.md) —
+comparar dos presupuestos de contexto sobre la misma pregunta de solo lectura
+(misma pregunta, modelo, commit e instrucciones de proyecto) y formular una
+regla propia a partir de evidencia verificada, no de la idea de que menos
+contexto siempre es mejor.
+
+Qué se hizo:
+
+- Se comparó un recorrido de **contexto amplio** (archivo completo, dos
+  archivos relacionados, log de tests completo, README general) contra uno de
+  **contexto dirigido** (solo el archivo con `save_note`, su test y una
+  restricción en una frase) sobre la misma pregunta: "¿Por qué `save_note`
+  maneja el texto en blanco así? Cita código e historial."
+- Se verificó cada cita de archivo:línea y de commit contra el working tree y
+  `git show` reales. El recorrido amplio encontró una relación válida que el
+  dirigido omitió (por qué `TEXT NOT NULL` no basta para rechazar texto en
+  blanco), pero también produjo la única cita de historial no verificable de
+  los dos recorridos (una ruta de archivo que no existía en el commit citado).
+- Se documentó la comparación completa, la tabla de criterios y la regla
+  operativa resultante en [`evidencia.md`](desafios/sesion%2003/evidencia.md),
+  incluida una nota de método sobre cómo se adaptó el desafío (pensado para
+  dos sesiones interactivas de la CLI) a dos subagentes aislados sin memoria
+  compartida.
