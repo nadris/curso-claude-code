@@ -23,10 +23,12 @@ externos antes de guardar. Ejecutada en la rama `practica/s01-contrato`
 `desafios/sesion 02/.claude/rules/testing.md` de probar persistencia contra
 PostgreSQL real.
 
-Verificación:
+Verificación (desde esta misma carpeta):
 
 ```bash
-cd "desafios/sesion 02"
-docker compose up --abort-on-container-exit --exit-code-from tests
-docker compose down -v
+./verificar.sh
 ```
+
+El script solo entra a `desafios/sesion 02` y corre el mismo
+`docker compose up/down` de arriba — se deja aquí para no tener que recordar
+en qué carpeta vive el código real.
