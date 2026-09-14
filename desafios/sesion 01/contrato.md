@@ -12,6 +12,10 @@ aceptar texto vacío o compuesto solo de espacios: lanza `ValueError` en ese
 caso. Para texto válido, se recortan los espacios externos antes de guardarlo
 (`" hola "` se guarda como `"hola"`).
 
+Fuera de alcance (ajustado tras la crítica en `critica.md`): no se valida el
+tipo de `text` (por ejemplo `None`); el type hint existente ya lo declara
+`str`.
+
 ## Fuentes del repositorio
 
 - `desafios/sesion 02/app/persistence.py` — función a modificar.
